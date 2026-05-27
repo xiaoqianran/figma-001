@@ -1,0 +1,540 @@
+@import "tailwindcss";
+
+/* ============================================
+   AETHER VPN — Premium Dark Design System
+   Distinctive, refined, unforgettable.
+   ============================================ */
+
+:root {
+  /* ============================================
+     DEFAULT: Deep Dark Theme (Aether Signature)
+     Mirrors Figma Dark Theme
+     ============================================ */
+  /* Deep Void Background */
+  --bg-base: #05070A;
+  --bg-elevated: #0C0F14;
+  --bg-glass: rgba(17, 21, 28, 0.85);
+  --bg-subtle: rgba(17, 21, 28, 0.5);
+  
+  /* Text */
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-tertiary: #64748B;
+  --text-inverse: #0F172A;
+  
+  /* Accent — Electric Cyan-Blue Gradient Soul (shared) */
+  --accent: #3B82F6;
+  --accent-2: #22D3EE;
+  --accent-gradient: linear-gradient(135deg, #3B82F6 0%, #22D3EE 100%);
+  
+  /* Semantic */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  
+  /* Borders & Effects */
+  --border: rgba(148, 163, 184, 0.12);
+  --border-strong: rgba(148, 163, 184, 0.2);
+  
+  /* Shadows */
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-orb: 0 0 80px rgba(59, 130, 246, 0.25);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.25);
+  
+  /* Motion Tokens */
+  --spring-snappy: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --spring-gentle: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ============================================
+   FULL LIGHT THEME — Mirrors Figma Light Theme page
+   Beautiful, clean, high-contrast light variant
+   ============================================ */
+[data-theme="light"] {
+  /* Light Surfaces */
+  --bg-base: #F8FAFC;
+  --bg-elevated: #FFFFFF;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+  --bg-subtle: rgba(15, 23, 42, 0.04);
+  
+  /* Light Text (high contrast) */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-tertiary: #64748B;
+  --text-inverse: #F1F5F9;
+  
+  /* Borders — lighter, crisp */
+  --border: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.16);
+  
+  /* Light Shadows — soft, elegant elevation */
+  --shadow-glass: 0 4px 20px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --shadow-orb: 0 0 60px rgba(59, 130, 246, 0.18);
+  --shadow-card: 0 2px 12px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(0, 0, 0, 0.03);
+  
+  /* Keep accent & semantic identical for brand consistency */
+}
+
+/* Ensure html/body pick up theme vars */
+html[data-theme="light"] body,
+[data-theme="light"] {
+  background: var(--bg-base);
+  color: var(--text-primary);
+}
+
+html, body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-feature-settings: "tnum" "ss01";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Distinctive Display Typography */
+.font-display {
+  font-family: "Inter", system-ui, sans-serif;
+  font-feature-settings: "tnum" "ss01";
+  letter-spacing: -0.025em;
+}
+
+/* Glassmorphism — Core of Aether aesthetic */
+.glass {
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  border-radius: 1.5rem;
+}
+
+.glass-strong {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(32px);
+  border-radius: 1.5rem;
+}
+
+/* Premium Button System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  transition: all 0.15s cubic-bezier(0.25, 0.1, 0.25, 1);
+  font-feature-settings: "tnum";
+}
+
+.btn:active {
+  transform: scale(0.985);
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: white;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-strong);
+  background: rgba(17, 21, 28, 0.7);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--text-primary);
+}
+
+/* Connection Orb — The Hero Element */
+.orb {
+  position: relative;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 40% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
+  transition: transform 0.6s var(--spring-gentle);
+}
+
+.orb::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  background: var(--accent-gradient);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.orb.connected {
+  box-shadow: var(--shadow-orb), 0 0 120px rgba(34, 211, 238, 0.2);
+}
+
+.orb-pulse {
+  animation: orb-pulse 3s var(--spring-gentle) infinite;
+}
+
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+}
+
+/* Data Flow Particles */
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--accent-2);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Server Card */
+.server-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(24px);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.server-card:active {
+  transform: scale(0.985);
+}
+
+.server-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.server-card.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* Beautiful Input */
+.input {
+  width: 100%;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 0.875rem 1rem;
+  font-size: 15px;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Premium Tabs */
+.tab {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background: var(--bg-subtle);
+}
+
+.tab-active {
+  background: var(--accent-gradient);
+  color: white;
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.35);
+}
+
+/* Log Timeline */
+.log-item {
+  position: relative;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+  border-left: 1px solid var(--border);
+}
+
+.log-item:last-child {
+  border-left-color: transparent;
+  padding-bottom: 0;
+}
+
+.log-dot {
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  border: 2px solid var(--bg-base);
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  background: var(--bg-glass);
+  backdrop-filter: blur(24px);
+  border-top: 1px solid var(--border);
+}
+
+/* Page Transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s var(--spring-gentle);
+}
+
+/* Scrollbar — Refined */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Selection */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+/* Focus Visible — Beautiful */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Stronger, high-contrast focus for light theme (ensures visibility on bright surfaces) */
+[data-theme="light"] *:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px var(--bg-base);
+}
+
+/* ============================================
+   THEME-AWARE UTILITIES (for Light + Dark)
+   Use these instead of hardcoded white/5 etc where possible
+   ============================================ */
+
+/* Subtle background used for icon circles, inactive states */
+.bg-subtle {
+  background: var(--bg-subtle);
+}
+
+/* Icon container used across Profile/Settings/Home cards */
+.icon-container {
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+}
+
+/* Theme-aware text helpers */
+.text-secondary {
+  color: var(--text-secondary);
+}
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+/* Status badge variants that adapt */
+.status-badge {
+  font-size: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 1px;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+.status-badge.on {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+}
+.status-badge.off {
+  background: var(--bg-subtle);
+  color: var(--text-tertiary);
+}
+
+/* Light theme specific refinements */
+[data-theme="light"] .glass,
+[data-theme="light"] .glass-strong,
+[data-theme="light"] .server-card {
+  box-shadow: var(--shadow-glass);
+}
+
+/* Orb in light mode: softer glow */
+[data-theme="light"] .orb {
+  background: radial-gradient(circle at 40% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
+}
+
+[data-theme="light"] .orb.connected {
+  box-shadow: var(--shadow-orb), 0 0 80px rgba(34, 211, 238, 0.12);
+}
+
+/* Bottom nav indicator gradient stays strong */
+[data-theme="light"] .bottom-nav .nav-active {
+  color: var(--text-primary);
+}
+
+/* Toaster adapts automatically via inline styles in App but vars help */
+[data-theme="light"] .sonner-toast {
+  background: var(--bg-elevated) !important;
+  border-color: var(--border) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Premium card accent in light */
+[data-theme="light"] .premium-card-accent {
+  border-color: rgba(59, 130, 246, 0.25);
+}
+
+/* Beautiful divider */
+.theme-divider {
+  border-color: var(--border);
+}
+
+/* Component preview cards in theme demo */
+.theme-preview-card {
+  transition: all 0.2s var(--spring-gentle);
+}
+.theme-preview-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+}
+
+/* ============================================
+   ACCESSIBILITY — Reduce Motion + Larger Text
+   Respects both user toggle (data-*) and system prefers-reduced-motion
+   ============================================ */
+
+/* Reduce Motion: kill non-essential transitions/animations */
+@media (prefers-reduced-motion: reduce),
+[data-reduce-motion="true"] {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0 !important;
+    transition-timing-function: linear !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Extra aggressive targeting for Aether's common motion classes */
+  .btn,
+  .glass,
+  .glass-strong,
+  .orb,
+  .interactive,
+  [class*="transition"],
+  [class*="duration-"] {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Keep only the absolute minimum essential active feedback */
+  .btn:active,
+  [role="switch"]:active,
+  button:active {
+    transform: scale(0.985);
+    transition: none !important;
+  }
+
+  /* Kill all decorative / looping animations */
+  .orb-pulse,
+  .particle,
+  .animate-pulse,
+  [class*="pulse"] {
+    animation: none !important;
+  }
+}
+
+/* Larger Text: more noticeable 20% scale bump so the effect is obvious */
+[data-larger-text="true"] {
+  --text-scale: 1.2;
+  /* Raise root font size so rem-based utilities respond */
+  font-size: calc(16px * var(--text-scale));
+}
+
+/* Scale every text utility we actually use in the app (standard + arbitrary) */
+[data-larger-text="true"] .text-xs,
+[data-larger-text="true"] .text-\[10px\] {
+  font-size: calc(0.625rem * var(--text-scale)) !important;
+  line-height: calc(0.875rem * var(--text-scale)) !important;
+}
+[data-larger-text="true"] .text-\[11px\] {
+  font-size: calc(0.6875rem * var(--text-scale)) !important;
+}
+[data-larger-text="true"] .text-sm,
+[data-larger-text="true"] .text-\[13px\] {
+  font-size: calc(0.75rem * var(--text-scale)) !important;
+}
+[data-larger-text="true"] .text-base,
+[data-larger-text="true"] .text-\[15px\] {
+  font-size: calc(1rem * var(--text-scale)) !important;
+}
+[data-larger-text="true"] .text-lg {
+  font-size: calc(1.125rem * var(--text-scale)) !important;
+}
+[data-larger-text="true"] .text-xl {
+  font-size: calc(1.25rem * var(--text-scale)) !important;
+}
+[data-larger-text="true"] .text-2xl,
+[data-larger-text="true"] .text-\[22px\] {
+  font-size: calc(1.5rem * var(--text-scale)) !important;
+}
+[data-larger-text="true"] .text-3xl {
+  font-size: calc(1.875rem * var(--text-scale)) !important;
+}
+[data-larger-text="true"] .text-\[28px\] {
+  font-size: calc(1.75rem * var(--text-scale)) !important;
+}
+
+/* Big numeric displays (Speedtest meter, comparison results, etc.) */
+[data-larger-text="true"] .font-mono.text-5xl,
+[data-larger-text="true"] .font-mono.text-4xl,
+[data-larger-text="true"] .text-4xl,
+[data-larger-text="true"] .text-5xl {
+  font-size: calc(3rem * var(--text-scale)) !important;
+}
+
+/* Also scale common tracking / small labels */
+[data-larger-text="true"] .tracking-\[1\.5px\],
+[data-larger-text="true"] .tracking-widest {
+  letter-spacing: 0.05em !important;
+}
+
+/* Slightly increase tap targets and spacing in larger text mode for comfort */
+[data-larger-text="true"] .glass,
+[data-larger-text="true"] .btn {
+  padding-top: calc(0.5rem * var(--text-scale));
+  padding-bottom: calc(0.5rem * var(--text-scale));
+}
