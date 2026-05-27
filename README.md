@@ -1,103 +1,115 @@
-# AETHER — Premium VPN
+# AETHER — 高级 VPN
 
-**Invisible. Unbreakable. Yours.**
+**隐形 · 坚不可摧 · 属于你**
 
-A complete, production-quality redesign of a premium VPN experience.
+一个完整、生产级的优质 VPN 体验重新设计。
 
-## Features
+<br>
 
-**Massive parallel development batch completed** — the app now includes a very large set of production-grade features:
+<p align="center">
+  <a href="./README.md">
+    <img src="https://img.shields.io/badge/中文-简体中文-blue?style=flat-square" alt="中文">
+  </a>
+  <a href="./README.en.md">
+    <img src="https://img.shields.io/badge/English-English-red?style=flat-square" alt="English">
+  </a>
+</p>
 
-- Full **Premium Subscriptions, Payments & Billing** flows
-- Complete **Settings** experience (Kill Switch, Auto-Connect, Notifications with real toggles)
-- **Account Security** (2FA setup, device management)
-- **Privacy & Data** controls + **Referral Program**
-- Rich **FAQ + Help & Support** center with live chat simulation
-- Full **Light Theme** support + theme switcher + dedicated preview pages
-- Advanced **Server Map**, **Notifications Center**, and **Diagnostics** pages
-- Significantly enhanced **Speedtest** with interactive dual-line charts and server-specific testing
-- Comprehensive **Component Library** (Button, Input variants, GlassCard, VPNOrb, Toggle, SettingsRow, Select, etc.)
+## 功能特性
 
-Core experience remains excellent:
-- Stunning dark (and now Light) premium interface with sophisticated glassmorphism
-- Heroic interactive connection orb with live animations
-- Real-time connection stats and duration timer
-- Beautiful server selector with live ping + favorites
-- Activity timeline with CSV export
-- Premium authentication flows
-- Fully functional state (Zustand + persistence)
+**大规模并行开发已完成** —— 应用现已包含大量生产级功能：
 
-## Tech Stack (Latest 2026)
+- 完整的**高级订阅、支付与账单**流程
+- 完善的**设置**体验（Kill Switch、自动连接、通知真实开关）
+- **账号安全**（2FA 设置、设备管理）
+- **隐私与数据**控制 + **推荐计划**
+- 丰富的**FAQ + 帮助与支持**中心，支持模拟在线客服
+- 完整的**浅色主题**支持 + 主题切换 + 专用预览页面
+- 高级的**服务器地图**、**通知中心**和**诊断**页面
+- 大幅增强的**测速工具**，支持交互式双线图表和指定服务器测试
+- 全面的**组件库**（Button、Input 变体、GlassCard、VPNOrb、Toggle、SettingsRow、Select 等）
+
+核心体验依然优秀：
+- 精致的深色（现已支持浅色）高级界面，采用高级玻璃拟态效果
+- 极具冲击力的交互式连接球，带实时动画
+- 实时连接状态与时长计时器
+- 美观的服务器选择器，支持实时 ping 和收藏
+- 带 CSV 导出的活动时间线
+- 高级认证流程
+- 完全可用的状态管理（Zustand + 持久化）
+
+## 技术栈（2026 最新）
 
 - React 19 + TypeScript 5.8
 - Vite 6 + SWC
-- Tailwind CSS 4 (new engine)
-- Framer Motion 12 (buttery animations)
+- Tailwind CSS 4（新引擎）
+- Framer Motion 12（丝滑动画）
 - React Router 7
-- Sonner (toasts)
-- Zustand 5 (state)
-- **Extensive internal Component Library** (Button, Input, GlassCard, VPNOrb, Toggle, SettingsRow, Select, Modal system, etc.)
+- Sonner（提示通知）
+- Zustand 5（状态管理）
+- **大量内部组件库**（Button、Input、GlassCard、VPNOrb、Toggle、SettingsRow、Select、Modal 系统等）
 
-## Getting Started
+## 快速开始
 
 ```bash
 npm install
 npm run dev
 ```
 
-Then visit:
-- Main app: http://localhost:5173
-- **Component Library Preview** (highly recommended): http://localhost:5173/dev/components
+然后访问：
+- 主应用：http://localhost:5173
+- **组件库预览**（强烈推荐）：http://localhost:5173/dev/components
 
-Build for production:
+生产环境构建：
 
 ```bash
 npm run build
 ```
 
-## Current State (Massive Parallel Development)
+## 当前状态（大规模并行开发）
 
-This project has undergone an extremely large-scale parallel development effort using multiple specialized agents.
+本项目经历了使用多个专业代理进行的大规模并行开发。
 
-**Key achievements in the recent development waves:**
-- **20+ new production-quality pages** added (Premium management, full Payments/Billing, Privacy controls, Referral system, complete Settings suite, Account Security + 2FA, FAQ + Help center, Server Map, Notifications Center, Advanced Diagnostics, Light Theme preview pages, etc.).
-- **Component Library significantly expanded** beyond the original Phase 1 primitives (now includes Toggle, SettingsRow, Select, Checkbox, RadioGroup, FormField, Modal, BottomSheet, InteractiveSpeedChart, and more). The library is the foundation for all new features and is showcased at `/dev/components`.
-- **Full Light + Dark theme support** with easy switching and dedicated preview tools.
-- Strong focus on **accessibility** (keyboard navigation, ARIA, live regions) and **code consistency** across all new features.
-- All new functionality is wired into the existing Zustand store with persistence and follows the established Aether design language.
+**近期开发主要成果：**
 
-See `REQUIREMENTS.md` for the detailed status (99% overall / 97% Figma parity — final verification complete with clean builds and lint).
+- 新增 **20+ 个生产级页面**（高级管理、完整支付/账单、隐私控制、推荐系统、完整设置套件、账号安全 + 2FA、FAQ + 帮助中心、服务器地图、通知中心、高级诊断、浅色主题预览页等）
+- **组件库大幅扩展**，远超最初的 Phase 1 基础组件（现已包含 Toggle、SettingsRow、Select、Checkbox、RadioGroup、FormField、Modal、BottomSheet、InteractiveSpeedChart 等）。组件库是所有新功能的基础，并在 `/dev/components` 展示
+- 完整的**浅色 + 深色主题**支持，支持一键切换和专用预览工具
+- 高度重视**无障碍访问**（键盘导航、ARIA、实时区域）和**代码一致性**
+- 所有新功能均接入现有的 Zustand store，支持持久化，并遵循 Aether 设计语言
 
-## Design Philosophy
+详细状态请查看 `REQUIREMENTS.md`（整体进度 99% / Figma 一致性 97% —— 已完成最终验证，构建和代码检查均通过）。
 
-Aether rejects generic "AI slop" aesthetics. Every detail was deliberately crafted:
+## 设计理念
 
-- Deep void `#05070A` background (with full Light theme support)
-- Electric cyan-blue gradient as the emotional core
-- Heavy, luxurious backdrop blur glassmorphism
-- Spring-based refined motion
-- Exceptional typography and spacing
-- One memorable interaction: the living connection orb
+Aether 拒绝泛泛的“AI 灌水”美学。每一个细节都经过精心打磨：
 
-Built with obsessive attention to craft across a very large feature surface.
+- 深邃虚空背景 `#05070A`（同时完整支持浅色主题）
+- 电光青蓝渐变作为情感核心
+- 重度、奢华的毛玻璃拟态效果
+- 基于弹簧的精致动效
+- 卓越的排版与间距
+- 最令人难忘的交互：会“呼吸”的连接球
 
----
-
-## Requirements & Figma Alignment
-
-**This is the authoritative living spec.**
-
-See [REQUIREMENTS.md](./REQUIREMENTS.md) for the complete, checkable feature list mapped against the "Levin - VPN App UI Kit" Figma file.
-
-It includes:
-- Executive status dashboard
-- Detailed Figma component → implementation mapping
-- Granular checkboxes for every screen, component, and flow
-- Recommended implementation order
-- Component extraction roadmap
-
-**Update the checkboxes in REQUIREMENTS.md every time you ship a feature.**
+在巨大的功能体量上，依然保持了对工艺的极致追求。
 
 ---
 
-**Final Polish (2026-05)**: Executive bumped to **99% Overall / 97% Figma Parity** after wrap-up verification pass. Full lint + type-check + build clean (minor issues fixed). ComponentPreview (`/dev/components`) refreshed to showcase newest additions (SettingsRow, Modal, BottomSheet). "Wrap-up Phase — Current Project Status" section added to REQUIREMENTS.md with verification results and honest summary. Project now macro-polished, fully documented, and production-verified. See REQUIREMENTS.md for the authoritative living spec and detailed status.
+## 需求与 Figma 对齐
+
+**这是权威的实时规范文档。**
+
+请查看 [REQUIREMENTS.md](./REQUIREMENTS.md)，其中包含完整的、可勾选的功能清单，并与 “Levin - VPN App UI Kit” Figma 文件一一对应。
+
+内容包括：
+- 执行状态总览
+- 详细的 Figma 组件 → 实现映射
+- 针对每个页面、组件和流程的颗粒度复选框
+- 推荐的实现顺序
+- 组件提取路线图
+
+**每次交付新功能后，请及时更新 REQUIREMENTS.md 中的复选框状态。**
+
+---
+
+**最终打磨（2026-05）**：经过收尾验证后，整体进度提升至 **99% / Figma 一致性 97%**。Lint、类型检查和构建均已通过（已修复小问题）。组件预览页（`/dev/components`）已更新，展示最新添加的组件（SettingsRow、Modal、BottomSheet 等）。已在 REQUIREMENTS.md 中新增“收尾阶段 — 当前项目状态”章节，包含验证结果和诚实总结。项目现已完成宏观打磨、完整文档化和生产级验证。权威的实时规范和详细状态请参见 REQUIREMENTS.md。
