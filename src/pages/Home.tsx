@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, Clock, ArrowRight } from 'lucide-react'
 import { useVPNStore } from '@/store/vpnStore'
 import { formatDuration } from '@/lib/utils'
+import { greetingForDate } from '@/lib/time'
 import { toast } from 'sonner'
 import { VPNOrb } from '@/components/ui'
 
@@ -23,6 +24,7 @@ export default function Home() {
   } = useVPNStore()
 
   const [elapsed, setElapsed] = useState(0)
+  const [greeting, setGreeting] = useState(() => greetingForDate())
 
   // Live timer
   useEffect(() => {
@@ -35,6 +37,14 @@ export default function Home() {
     }, 1000)
     return () => clearInterval(interval)
   }, [isConnected, connectionStartTime])
+
+  // Time-of-day greeting from local clock (not a hardcoded "Good evening")
+  useEffect(() => {
+    const tick = () => setGreeting(greetingForDate())
+    tick()
+    const id = window.setInterval(tick, 60_000)
+    return () => window.clearInterval(id)
+  }, [])
 
   const handleToggle = () => {
     if (isConnected) {
@@ -56,9 +66,9 @@ export default function Home() {
 
   return (
     <div className="pb-4 text-[var(--text-primary)]">
-      {/* Greeting */}
+      {/* Greeting — live local time-of-day */}
       <div className="mb-8">
-        <div className="text-tertiary text-sm">Good evening, Alex</div>
+        <div className="text-tertiary text-sm">{greeting}, Alex</div>
         <div className="font-display text-[28px] tracking-[-1px] font-semibold mt-1">Stay protected.</div>
       </div>
 
